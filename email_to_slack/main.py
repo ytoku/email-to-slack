@@ -22,9 +22,13 @@ def decode_header_part(r: Tuple[Any, Optional[Any]]) -> str:
 
 def send_message(message: str) -> None:
     try:
-        response = requests.post(INCOMING_WEBHOOK_URL, json={
-            "text": message.rstrip(),
-        }, timeout=5)
+        response = requests.post(
+            INCOMING_WEBHOOK_URL,
+            json={
+                "text": message.rstrip(),
+            },
+            timeout=5,
+        )
     except requests.exceptions.Timeout:
         exit(EX_TEMPFAIL)  # retry
     if response.status_code == 500:
