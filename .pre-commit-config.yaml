@@ -10,6 +10,12 @@ repos:
     -   id: check-yaml
     -   id: check-added-large-files
 
+-   repo: https://github.com/asottile/add-trailing-comma
+    rev: 'v2.2.3'
+    hooks:
+    -   id: add-trailing-comma
+        args: [--py36-plus]
+
 -   repo: https://github.com/pycqa/isort
     rev: '5.10.1'
     hooks:
@@ -23,12 +29,6 @@ repos:
             flake8-bugbear,
             flake8-comprehensions,
         ]
-
--   repo: https://github.com/asottile/add-trailing-comma
-    rev: 'v2.2.3'
-    hooks:
-    -   id: add-trailing-comma
-        args: [--py36-plus]
 
 -   repo: local
     hooks:
