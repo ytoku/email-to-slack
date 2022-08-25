@@ -39,8 +39,9 @@ disable = [
   "missing-class-docstring",
   "missing-function-docstring",
   "design",
-  "invalid-name",
   "global-statement",
   "redefined-builtin",
   "duplicate-code",
 ]
+variable-rgx="^[a-z_][a-z0-9_]*$"
+argument-rgx="^[a-z_][a-z0-9_]*$"
