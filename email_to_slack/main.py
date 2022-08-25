@@ -14,10 +14,9 @@ SLACK_MAX_LINES = 56
 def decode_header_part(r: Tuple[Any, Optional[Any]]) -> str:
     if isinstance(r[0], str):
         return r[0]
-    elif isinstance(r[0], bytes) and isinstance(r[1], str):
+    if isinstance(r[0], bytes) and isinstance(r[1], str):
         return r[0].decode(r[1], "replace")
-    else:
-        raise ValueError()
+    raise ValueError()
 
 
 def send_message(message: str) -> None:
@@ -30,9 +29,9 @@ def send_message(message: str) -> None:
             timeout=5,
         )
     except requests.exceptions.Timeout:
-        exit(EX_TEMPFAIL)  # retry
+        sys.exit(EX_TEMPFAIL)  # retry
     if response.status_code == 500:
-        exit(EX_TEMPFAIL)  # retry
+        sys.exit(EX_TEMPFAIL)  # retry
 
 
 def main() -> None:

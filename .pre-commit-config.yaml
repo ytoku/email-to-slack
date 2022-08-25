@@ -38,3 +38,16 @@ repos:
         pass_filenames: False
         types_or: ['python']
         entry: poetry run mypy --no-incremental .
+
+-   repo: local
+    hooks:
+    -   id: pylint
+        name: pylint
+        entry: poetry run pylint
+        language: system
+        types: [python]
+        args: [
+            "-rn",  # Only display messages
+            "-sn",  # Don't display the score
+            "--disable=fixme",
+        ]
