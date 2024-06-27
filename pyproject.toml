@@ -12,6 +12,7 @@ requests = "^2.32.2"
 types-requests = "^2.28.6"
 pylint = "^3.2.4"
 pyright = "^1.1.369"
+ruff = "^0.5.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -20,9 +21,13 @@ build-backend = "poetry.core.masonry.api"
 [tool.pyright]
 strict = ["."]
 
+[tool.black]
+line-length = 79
+target-version = ["py38"]
+
 [tool.isort]
-multi_line_output = 3
-include_trailing_comma = true
+profile = "black"
+line_length = 79
 
 [tool.pylint]
 load-plugins = [
