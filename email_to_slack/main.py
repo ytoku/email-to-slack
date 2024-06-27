@@ -1,4 +1,5 @@
 import email
+import email.header
 import sys
 from typing import Any, Optional, Tuple
 
