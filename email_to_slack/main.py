@@ -19,7 +19,7 @@ def decode_header_part(r: Tuple[Any, Optional[Any]]) -> str:
         return r[0]
     if isinstance(r[0], bytes) and isinstance(r[1], str):
         return r[0].decode(r[1], "replace")
-    raise ValueError()
+    raise ValueError
 
 
 def send_message(message: str) -> None:
