@@ -32,12 +32,11 @@ repos:
 
 -   repo: local
     hooks:
-    -   id: mypy
-        name: mypy
+    -   id: pyright
+        name: pyright
         language: system
-        pass_filenames: False
         types_or: ['python']
-        entry: poetry run mypy --no-incremental .
+        entry: poetry run pyright
 
 -   repo: local
     hooks:

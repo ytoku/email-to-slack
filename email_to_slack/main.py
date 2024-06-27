@@ -55,7 +55,7 @@ def main() -> None:
     if not isinstance(body, str):
         return  # error
 
-    parts = []
+    parts = list[str]()
     part = f"Subject: `{subject}`\n```\n"
     part_nlines = 2
     for line in body.split("\n"):

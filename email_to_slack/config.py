@@ -1,3 +1,4 @@
+# pyright: reportConstantRedefinition=false
 import sys
 from configparser import ConfigParser
 from pathlib import Path
