@@ -13,5 +13,5 @@ indent_size = 4
 [*.sh]
 indent_size = 2
 
-[.pre-commit-config.yaml]
-indent_size = 4
+[*.yaml]
+indent_size = 2

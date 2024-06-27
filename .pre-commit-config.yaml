@@ -1,59 +1,61 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
     hooks:
-    -   id: trailing-whitespace
-    -   id: end-of-file-fixer
-    -   id: check-toml
-    -   id: check-yaml
-    -   id: check-added-large-files
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-toml
+      - id: check-yaml
+      - id: check-added-large-files
 
--   repo: https://github.com/asottile/add-trailing-comma
+  # Formatters
+  - repo: https://github.com/asottile/add-trailing-comma
     rev: 'v3.1.0'
     hooks:
-    -   id: add-trailing-comma
+      - id: add-trailing-comma
         args: [--py36-plus]
 
--   repo: https://github.com/psf/black
+  - repo: https://github.com/psf/black
     rev: '24.4.2'
     hooks:
-    -   id: black
+      - id: black
 
--   repo: https://github.com/pycqa/isort
+  - repo: https://github.com/pycqa/isort
     rev: '5.13.2'
     hooks:
-    -   id: isort
+      - id: isort
 
--   repo: https://github.com/pycqa/flake8
+  # Linters
+  - repo: https://github.com/pycqa/flake8
     rev: '7.1.0'
     hooks:
-    -   id: flake8
+      - id: flake8
         additional_dependencies: [
             flake8-bugbear,
             flake8-comprehensions,
         ]
 
--   repo: local
+  - repo: local
     hooks:
-    -   id: ruff
+      - id: ruff
         name: ruff
         entry: poetry run ruff check
         language: system
         types: [python]
 
--   repo: local
+  - repo: local
     hooks:
-    -   id: pyright
+      - id: pyright
         name: pyright
         language: system
         types_or: ['python']
         entry: poetry run pyright
 
--   repo: local
+  - repo: local
     hooks:
-    -   id: pylint
+      - id: pylint
         name: pylint
         entry: poetry run pylint
         language: system
