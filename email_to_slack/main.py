@@ -1,5 +1,7 @@
-import email
 import email.header
+import email.message
+import email.parser
+import email.policy
 import sys
 from typing import Any, Optional, Tuple
 
@@ -37,14 +39,21 @@ def send_message(message: str) -> None:
 
 def main() -> None:
     message = sys.stdin.read()
-    msgobj = email.message_from_string(message)
+    msgobj = email.parser.Parser(policy=email.policy.default).parsestr(message)
+    if not isinstance(msgobj, email.message.EmailMessage):
+        return  # error
 
     subject = "".join(
         decode_header_part(r)
         for r in email.header.decode_header(msgobj["Subject"])
     )
-    body_encoding = msgobj.get_content_charset() or "UTF-8"
-    body = msgobj.get_payload(decode=True).decode(body_encoding, "replace")
+
+    bodyobj = msgobj.get_body(preferencelist=("plain",))
+    if not isinstance(bodyobj, email.message.MIMEPart):
+        return  # error
+    body = bodyobj.get_content()
+    if not isinstance(body, str):
+        return  # error
 
     parts = []
     part = f"Subject: `{subject}`\n```\n"
