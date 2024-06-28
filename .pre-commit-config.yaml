@@ -28,15 +28,6 @@ repos:
       - id: isort
 
   # Linters
-  - repo: https://github.com/pycqa/flake8
-    rev: '7.1.0'
-    hooks:
-      - id: flake8
-        additional_dependencies: [
-            flake8-bugbear,
-            flake8-comprehensions,
-        ]
-
   - repo: local
     hooks:
       - id: ruff
