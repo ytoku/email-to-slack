@@ -5,11 +5,11 @@ description = ""
 authors = ["ytoku"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.10"
 requests = "^2.32.4"
 
 [tool.poetry.group.dev.dependencies]
-types-requests = "^2.28.6"
+types-requests = "^2.32.4"
 pylint = "^3.2.4"
 pyright = "^1.1.369"
 ruff = "^0.5.0"
