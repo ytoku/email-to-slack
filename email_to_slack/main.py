@@ -51,6 +51,11 @@ def main() -> None:
     bodyobj = msgobj.get_body(preferencelist=("plain",))
     if not isinstance(bodyobj, email.message.MIMEPart):
         return  # error
+
+    # workaround: Set default charset to UTF-8
+    if bodyobj.get_content_charset() is None:
+        bodyobj.set_charset("utf-8")
+
     body = bodyobj.get_content()
     if not isinstance(body, str):
         return  # error
