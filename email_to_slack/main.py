@@ -40,8 +40,6 @@ def send_message(message: str) -> None:
 def main() -> None:
     message = sys.stdin.read()
     msgobj = email.parser.Parser(policy=email.policy.default).parsestr(message)
-    if not isinstance(msgobj, email.message.EmailMessage):
-        return  # error
 
     subject = "".join(
         decode_header_part(r)
