@@ -22,12 +22,17 @@ dev = [
     "ruff>=0.5.0",
 ]
 
+
 [tool.uv]
 default-groups = "all"
 
 [tool.uv.build-backend]
 module-name = "email_to_slack"
 module-root = ""
+
+[[tool.uv.index]]
+url = "https://pypi.flatt.tech/simple/"
+default = true
 
 [build-system]
 requires = ["uv_build>=0.11.2,<0.12.0"]
