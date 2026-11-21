@@ -38,8 +38,9 @@ def send_message(message: str) -> None:
 
 
 def main() -> None:
-    message = sys.stdin.read()
-    msgobj = email.parser.Parser(policy=email.policy.default).parsestr(message)
+    msgobj = email.parser.BytesParser(policy=email.policy.default).parse(
+        sys.stdin.buffer,
+    )
 
     subject = "".join(
         decode_header_part(r)
